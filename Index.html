@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier</title>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <h2>MobileNet Image Classifier</h2>
+        <div>
+            <form id="my-form">
+                <div id="search-box">
+                    <div>
+                        <input type="text" id="text-input" placeholder="Enter Image Url" autocomplete="off" autofocus
+                            required>
+                    </div>
+                    <div id="icon">
+                        <!-- <span id="camera"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                            fill="#FFFFFF">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="12" cy="12" r="3.2" />
+                            <path
+                                d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                        </svg>
+                        <!-- </span> -->
+                    </div>
+                    <div>
+                        <button>
+                            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                data-iml="1629618384189" id="search-svg">
+                                <path
+                                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div id="image-picker">
+                    <div id="image-picker-top">
+                        <div>
+                            <h4>Search by image</h4>
+                            <p>Choose image or take photo.</p>
+                        </div>
+                        <div id="cut"></div>
+                    </div>
+                    <div id="image-picker-bottom">
+                        <div>
+                            <input type="file" id="imageFile" capture="user" accept="image/*">
+                        </div>
+                        <div>
+                            <input type="file" id="image_uploads" name="image_uploads" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <div id="data-container">
+                <p id="predicted-data"></p>
+            </div>
+            <div id="loader-position">
+                <p>Hang on! Loding...</p>
+                <div id="loader"></div>
+            </div>
+        </div>
+
+        <div>
+            <img id="preview" src="image/Dog.jpg" alt="Cat" width="550px">
+        </div>
+        <img id="img" crossorigin src="image/Dog.jpg" width="227" height="227" hidden />
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
